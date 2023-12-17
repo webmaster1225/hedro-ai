@@ -68,18 +68,6 @@
       hsla(200, 100%, 40%, 1) 0px,
       rgb(4, 243, 243) 50%
     );
-
-  /* background-image: radial-gradient(
-      at 27% 37%,
-      hsla(215, 98%, 61%, 1) 0px,
-      transparent 0%
-    ),
-    radial-gradient(at 97% 21%, hsla(125, 98%, 72%, 1) 0px, transparent 50%),
-    radial-gradient(at 52% 99%, hsla(354, 98%, 61%, 1) 0px, transparent 50%),
-    radial-gradient(at 10% 29%, hsla(256, 96%, 67%, 1) 0px, transparent 50%),
-    radial-gradient(at 97% 96%, hsla(38, 60%, 74%, 1) 0px, transparent 50%),
-    radial-gradient(at 33% 50%, hsla(222, 67%, 73%, 1) 0px, transparent 50%),
-    radial-gradient(at 79% 53%, hsla(343, 68%, 79%, 1) 0px, transparent 50%); */
   position: absolute;
   content: '';
   width: 100%;
@@ -97,11 +85,15 @@
 
 /* Tailwind Styles */
 .app {
-  @apply relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto px-3 sm:px-6 md:px-9;
+  @apply relative z-10 flex justify-center items-center flex-col;
 }
 
 .logo-text {
-  @apply pt-9 text-4xl font-extrabold leading-[1.15] text-black sm:text-5xl;
+  @apply pt-9 text-4xl font-extrabold leading-[1.15] sm:text-5xl;
+}
+
+.sub-logo-text {
+  @apply tracking-wide font-bold text-xl text-secondary text-center;
 }
 
 .logo-teal-gradient {
@@ -118,8 +110,4 @@
 
 .orange-gradient {
   @apply bg-gradient-to-r from-amber-600 via-orange-600 to-yellow-500 bg-clip-text text-transparent;
-}
-
-.box-input {
-  @apply w-full rounded-md border border-gray-200 bg-white py-2.5 px-3 shadow-lg font-medium focus:border-black focus:outline-none focus:ring-0;
 }

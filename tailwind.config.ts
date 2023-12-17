@@ -1,11 +1,7 @@
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
-  content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
+  content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       fontFamily: {
@@ -13,6 +9,8 @@ const config: Config = {
       },
       colors: {
         primary: '#2dd4bf',
+        secondary: '#7b7c7e',
+        bordercolor: '#d4d3d3',
       },
       screens: {
         xxsm: '340px',
