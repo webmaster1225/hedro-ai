@@ -54,8 +54,7 @@ const ChatInputBox = ({
       </div>
       {note && (
         <div className='text-xs mt-0.5 font-semibold text-secondary'>
-          note: Hedro is in beta and may display incorrect or harmful
-          information
+          note: Hedro is in beta and may display incorrect information
         </div>
       )}
     </fieldset>
