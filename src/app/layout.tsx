@@ -1,6 +1,7 @@
-import { ChakraUIProviders } from '@/libs/chakra-ui/providers';
 import '@/styles/globals.css';
 import type { Metadata } from 'next';
+import StyreneAWebFont from '@/fonts';
+import { ChakraUIProviders } from '@/libs/chakra-ui/providers';
 
 export const metadata: Metadata = {
   title: 'Hedro-ai',
@@ -14,8 +15,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='en'>
-      <body>
+    <html lang='en' className={`${StyreneAWebFont.variable}`}>
+      <body className='font-styrene'>
         <ChakraUIProviders>{children}</ChakraUIProviders>
       </body>
     </html>
