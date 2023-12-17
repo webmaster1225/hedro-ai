@@ -1,6 +1,6 @@
 import '@/styles/globals.css';
+import NunitoFonts from '@/fonts';
 import type { Metadata } from 'next';
-import StyreneAWebFont from '@/fonts';
 import { ChakraUIProviders } from '@/libs/chakra-ui/providers';
 
 export const metadata: Metadata = {
@@ -15,9 +15,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='en' className={`${StyreneAWebFont.variable}`}>
-      <body className='font-styrene'>
-        <ChakraUIProviders>{children}</ChakraUIProviders>
+    <html lang='en' className={`${NunitoFonts.className}`}>
+      <body className='font-nunito'>
+        <ChakraUIProviders>
+          <div className='main'>
+            <div className='background-gradient' />
+          </div>
+
+          <main className='app relative'>{children}</main>
+        </ChakraUIProviders>
       </body>
     </html>
   );
