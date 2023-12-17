@@ -22,7 +22,7 @@ export default function RootLayout({
             <div className='background-gradient' />
           </div>
 
-          <main className='app relative'>{children}</main>
+          <main className='app'>{children}</main>
         </ChakraUIProviders>
       </body>
     </html>
