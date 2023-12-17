@@ -11,6 +11,16 @@ const config: Config = {
       fontFamily: {
         nunito: ['var(--font-nunito)', 'sans-serif'],
       },
+      colors: {
+        primary: '#2dd4bf',
+      },
+      screens: {
+        xxsm: '340px',
+        xsm: '444px',
+        xssm: '520px',
+        xmd: '880px',
+        xmmd: '976px',
+      },
     },
   },
   plugins: [],

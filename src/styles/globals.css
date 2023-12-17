@@ -2,26 +2,124 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+/* 
+  @Note: The styles for this is heavily inspired by the creator of this amazing site (https://dub.sh) – all credits go to them! 
+*/
+
+.main {
+  width: 100vw;
+  min-height: 100vh;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  padding: 120px 24px 160px 24px;
+  pointer-events: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.main:before {
+  background: radial-gradient(circle, rgba(2, 0, 36, 0) 0, #f2f1ea 100%);
+  position: absolute;
+  content: '';
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+.main:after {
+  content: '';
+  background-image: url('/assets/images/grid.svg');
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  opacity: 0.4;
+  filter: invert(1);
+}
+
+.background-gradient {
+  height: fit-content;
+  z-index: 3;
+  width: 100%;
+  max-width: 640px;
+  background-image: radial-gradient(
+      at 27% 37%,
+      hsla(180, 100%, 60%, 1) 0px,
+      rgb(182, 111, 218) 50%
+    ),
+    radial-gradient(
+      at 97% 30%,
+      rgb(198, 126, 234) 0px,
+      hsla(330, 100%, 60%, 1) 50%
+    ),
+    radial-gradient(
+      at 52% 99%,
+      rgb(243, 70, 157) 0px,
+      hsla(330, 100%, 40%, 1) 50%
+    ),
+    radial-gradient(
+      at 10% 29%,
+      hsla(330, 100%, 40%, 1) 0px,
+      hsla(200, 100%, 40%, 1) 50%
+    ),
+    radial-gradient(
+      at 97% 96%,
+      hsla(200, 100%, 40%, 1) 0px,
+      rgb(4, 243, 243) 50%
+    );
+
+  /* background-image: radial-gradient(
+      at 27% 37%,
+      hsla(215, 98%, 61%, 1) 0px,
+      transparent 0%
+    ),
+    radial-gradient(at 97% 21%, hsla(125, 98%, 72%, 1) 0px, transparent 50%),
+    radial-gradient(at 52% 99%, hsla(354, 98%, 61%, 1) 0px, transparent 50%),
+    radial-gradient(at 10% 29%, hsla(256, 96%, 67%, 1) 0px, transparent 50%),
+    radial-gradient(at 97% 96%, hsla(38, 60%, 74%, 1) 0px, transparent 50%),
+    radial-gradient(at 33% 50%, hsla(222, 67%, 73%, 1) 0px, transparent 50%),
+    radial-gradient(at 79% 53%, hsla(343, 68%, 79%, 1) 0px, transparent 50%); */
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  filter: blur(100px) saturate(150%);
+  top: 80px;
+  opacity: 0.15;
+}
+
+@media screen and (max-width: 640px) {
+  .main {
+    padding: 0;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+/* Tailwind Styles */
+.app {
+  @apply relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto px-3 sm:px-6 md:px-9;
+}
+
+.logo-text {
+  @apply pt-9 text-4xl font-extrabold leading-[1.15] text-black sm:text-5xl;
+}
+
+.logo-teal-gradient {
+  @apply bg-gradient-to-r from-teal-600 via-orange-300 to-teal-400 bg-clip-text text-transparent;
+}
+
+.green-gradient {
+  @apply bg-gradient-to-r from-green-400 to-green-500 bg-clip-text text-transparent;
+}
+
+.blue-gradient {
+  @apply bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent;
+}
+
+.orange-gradient {
+  @apply bg-gradient-to-r from-amber-600 via-orange-600 to-yellow-500 bg-clip-text text-transparent;
+}
+
+.box-input {
+  @apply w-full rounded-md border border-gray-200 bg-white py-2.5 px-3 shadow-lg font-medium focus:border-black focus:outline-none focus:ring-0;
 }
