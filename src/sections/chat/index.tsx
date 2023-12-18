@@ -1,23 +1,31 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+import { ChatLog } from '@/types';
 import { motion } from 'framer-motion';
-import ChatInputBox from '@/components/chat-input-box';
+import ChatInputBox from '@/components/chat-wizard/chat-input-box';
 import { VerticalCommonVariants } from '@/libs/framer-motion/variants';
+import ChatWizard from '@/components/chat-wizard';
 
 const ChatWithHedro = () => {
   const [chatValue, setChatValue] = useState('');
+  const [chatLog, setChatLog] = useState<ChatLog[]>([]);
   const [isChatMode, setIsChatMode] = useState(false);
   const verticalVariant = VerticalCommonVariants(45, 0.5);
 
   const handleOnSubmit = (e: any) => {
     e.preventDefault();
     if (chatValue !== '') {
-      console.log('meow');
+      const newChatLog = chatLog;
+      newChatLog.push({ id: uuidv4(), user: chatValue, hedro: 'meow' });
+      setChatLog(newChatLog);
       setChatValue('');
       setIsChatMode(true);
     }
   };
+
+  useEffect(() => console.log(chatLog), [chatLog.length]);
 
   return (
     <section
