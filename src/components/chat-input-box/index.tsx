@@ -6,6 +6,7 @@ interface PageProps {
   value: string;
   note?: boolean;
   inputRef?: any;
+  isChatMode: boolean;
   lightShadow?: boolean;
   handleOnSubmit: (e: any) => void;
   handleOnFieldChange: (e: any) => void;
@@ -16,6 +17,7 @@ const ChatInputBox = ({
   value,
   note,
   inputRef,
+  isChatMode,
   handleOnSubmit,
   handleOnFieldChange,
 }: PageProps) => {
@@ -23,8 +25,12 @@ const ChatInputBox = ({
   const [onFocus, setOnFocus] = useState(false);
 
   return (
-    <fieldset className='w-full flex justify-center flex-col items-center mt-12'>
-      <div className='w-4/5 relative'>
+    <fieldset
+      className={`${
+        isChatMode ? `w-[810px]` : ` w-[550px]`
+      } flex justify-center flex-col items-center mt-12`}
+    >
+      <div className={`w-full relative`}>
         <input
           id={id}
           ref={inputRef}
