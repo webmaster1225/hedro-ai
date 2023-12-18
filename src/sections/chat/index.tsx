@@ -30,8 +30,15 @@ const ChatWithHedro = () => {
         className='flex flex-col min-h-[100vh] w-full items-center justify-center'
       >
         <motion.h1
+          onClick={() => {
+            if (isChatMode) {
+              window.location.reload();
+            }
+          }}
           variants={verticalVariant}
-          className={`logo-teal-gradient logo-text`}
+          className={`logo-teal-gradient logo-text ${
+            isChatMode && 'cursor-pointer'
+          }`}
         >
           Hedro.ai
         </motion.h1>

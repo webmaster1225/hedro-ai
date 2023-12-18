@@ -25,7 +25,6 @@ const ChatWizard = ({ messages, isLoading }: PageProps) => {
       {!isLoading && <hr className='mt-12 bg-secondary h-[0.3px]' />}
 
       {/* Follow up questions*/}
-
       {!isLoading && (
         <div className='-mt-3'>
           <p className='text-black font-bold'>Follow up questions: </p>
