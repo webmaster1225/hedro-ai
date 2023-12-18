@@ -1,31 +1,23 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
-import { ChatLog } from '@/types';
+import { useState } from 'react';
+import { useChat } from 'ai/react';
 import { motion } from 'framer-motion';
+import ChatWizard from '@/components/chat-wizard';
 import ChatInputBox from '@/components/chat-wizard/chat-input-box';
 import { VerticalCommonVariants } from '@/libs/framer-motion/variants';
-import ChatWizard from '@/components/chat-wizard';
 
 const ChatWithHedro = () => {
-  const [chatValue, setChatValue] = useState('');
-  const [chatLog, setChatLog] = useState<ChatLog[]>([]);
   const [isChatMode, setIsChatMode] = useState(false);
   const verticalVariant = VerticalCommonVariants(45, 0.5);
+  const { input, handleInputChange, handleSubmit, messages, isLoading } =
+    useChat();
 
   const handleOnSubmit = (e: any) => {
     e.preventDefault();
-    if (chatValue !== '') {
-      const newChatLog = chatLog;
-      newChatLog.push({ id: uuidv4(), user: chatValue, hedro: 'meow' });
-      setChatLog(newChatLog);
-      setChatValue('');
-      setIsChatMode(true);
-    }
+    handleSubmit(e);
+    setIsChatMode(true);
   };
-
-  useEffect(() => console.log(chatLog), [chatLog.length]);
 
   return (
     <section
@@ -50,6 +42,12 @@ const ChatWithHedro = () => {
           Hedera AI Chatbot Assistant - Elevate Efficiency, Ignite Productivity!
         </motion.h2>
 
+        {isChatMode && (
+          <div className='flex-1'>
+            <ChatWizard messages={messages} isLoading={isLoading} />
+          </div>
+        )}
+
         <motion.form
           variants={verticalVariant}
           onSubmit={handleOnSubmit}
@@ -58,12 +56,10 @@ const ChatWithHedro = () => {
           <ChatInputBox
             note={true}
             id={'chat-input'}
-            value={chatValue}
+            value={input}
             isChatMode={isChatMode}
             handleOnSubmit={handleOnSubmit}
-            handleOnFieldChange={(e: any) => {
-              setChatValue(e.target.value);
-            }}
+            handleOnFieldChange={handleInputChange}
           />
         </motion.form>
       </motion.div>
