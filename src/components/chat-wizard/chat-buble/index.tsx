@@ -6,10 +6,11 @@ import { FaRegEdit, FaRegCopy } from 'react-icons/fa';
 interface PageProps {
   content: string;
   isHedro: boolean;
+  id: string;
 }
 
-const ChatBuble = ({ content, isHedro }: PageProps) => {
-  const nickname = isHedro ? 'Hedrop' : 'You';
+const ChatBuble = ({ content, isHedro, id }: PageProps) => {
+  const nickname = isHedro ? 'Hedro' : 'You';
   const [copied, setCopied] = useState(false);
 
   const copyContentToClipboard = (content: string) => {
@@ -28,13 +29,19 @@ const ChatBuble = ({ content, isHedro }: PageProps) => {
           isHedro ? 'bg-[#fff]' : 'bg-[#f3efe8]'
         } border border-bordercolor/100 rounded-lg px-2 pt-2 pb-2 flex flex-col gap-2`}
       >
-        <p
+        <div
           className={`${
             isHedro ? 'text-[#271d0b]' : 'text-[#715625]'
           } font-semibold tracking-tight`}
         >
-          {content}
-        </p>
+          {content.split('\n').map((currentTextBlock: string, index) => {
+            if (currentTextBlock === '') {
+              return <p key={id + index}>&nbsp;</p>; // " "
+            } else {
+              return <p key={id + index}>{currentTextBlock}</p>;
+            }
+          })}
+        </div>
 
         <div className='flex gap-1'>
           {!isHedro && (
