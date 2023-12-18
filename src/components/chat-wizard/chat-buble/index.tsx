@@ -22,8 +22,14 @@ const ChatBuble = ({ content, isHedro, id }: PageProps) => {
   };
 
   return (
-    <div className={`flex flex-col ${isHedro ? 'items-start' : 'items-end'} `}>
-      <p className=' text-primary font-bold text-xl'>{nickname}</p>
+    <div
+      className={`w-full flex flex-col ${
+        isHedro ? 'items-start' : 'items-end'
+      } `}
+    >
+      <p className=' text-primary font-bold text-base xssm:text-lg'>
+        {nickname}
+      </p>
       <div
         className={`${
           isHedro ? 'bg-[#fff]' : 'bg-[#f3efe8]'
@@ -32,7 +38,7 @@ const ChatBuble = ({ content, isHedro, id }: PageProps) => {
         <div
           className={`${
             isHedro ? 'text-[#271d0b]' : 'text-[#715625]'
-          } font-semibold tracking-tight`}
+          } font-semibold tracking-tight text-sm xssm:text-base`}
         >
           {content.split('\n').map((currentTextBlock: string, index) => {
             if (currentTextBlock === '') {

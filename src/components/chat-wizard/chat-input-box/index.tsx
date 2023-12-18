@@ -27,8 +27,8 @@ const ChatInputBox = ({
   return (
     <fieldset
       className={`${
-        isChatMode ? `w-[810px]` : ` w-[550px]`
-      } flex justify-center flex-col items-center mt-12`}
+        isChatMode ? `w-full sm:w-[810px]` : `w-full sm:w-[550px]`
+      } flex justify-center flex-col items-center mt-12 mx-3 xsm:mx-6 xssm:mx-12`}
     >
       <div className={`w-full relative`}>
         <input
@@ -51,7 +51,7 @@ const ChatInputBox = ({
           onMouseEnter={() => setOnHover(true)}
           onMouseLeave={() => setOnHover(false)}
           onClick={handleOnSubmit}
-          className={`absolute text-white text-2xl bg-gradient-to-r from-teal-500 to-teal-300 rounded-xl p-1 top-2 right-3 cursor-pointer transition ease-in-out hover:scale-105 ${
+          className={`absolute hidden xsm:block text-white text-2xl bg-gradient-to-r from-teal-500 to-teal-300 rounded-xl p-1 top-2 right-3 cursor-pointer transition ease-in-out hover:scale-105 ${
             (onHover || onFocus) && `-translate-y-0.5`
           }`}
         >

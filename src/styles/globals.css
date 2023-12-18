@@ -93,7 +93,7 @@
 }
 
 .sub-logo-text {
-  @apply tracking-wide font-bold text-xl text-secondary text-center;
+  @apply tracking-wide font-bold text-secondary text-center text-sm sm:text-xl mx-2;
 }
 
 .logo-teal-gradient {

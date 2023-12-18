@@ -21,7 +21,7 @@ const ChatWithHedro = () => {
 
   return (
     <section
-      className={`w-[1000px] min-h-[100vh] flex flex-col gap-9 items-center justify-center relative`}
+      className={`w-full sm:w-[650px] lg:w-[1000px] min-h-[100vh] flex flex-col gap-9 items-center justify-center relative`}
     >
       <motion.div
         initial='hidden'
@@ -50,7 +50,7 @@ const ChatWithHedro = () => {
         </motion.h2>
 
         {isChatMode && (
-          <div className='flex-1'>
+          <div className='flex-1 w-full flex justify-center'>
             <ChatWizard messages={messages} isLoading={isLoading} />
           </div>
         )}

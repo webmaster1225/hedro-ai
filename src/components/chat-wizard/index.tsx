@@ -9,10 +9,10 @@ interface PageProps {
 
 const ChatWizard = ({ messages, isLoading }: PageProps) => {
   return (
-    <div className='w-[810px] min-h-full px-3 flex flex-col gap-6'>
+    <div className='w-full lg:w-[810px] min-h-full px-3 flex flex-col gap-6'>
       {messages.map((message) => {
         return (
-          <div key={message.id}>
+          <div className='w-full' key={message.id}>
             <ChatBuble
               isHedro={message.role === 'assistant'}
               content={message.content}
