@@ -2,6 +2,7 @@ import '@/styles/globals.css';
 import NunitoFonts from '@/fonts';
 import type { Metadata } from 'next';
 import { ChakraUIProviders } from '@/libs/chakra-ui/providers';
+import GoogleAnalytics from '@/components/analytics/google-analytics';
 
 export const metadata: Metadata = {
   title: 'Hedro-ai',
@@ -21,7 +22,7 @@ export default function RootLayout({
           <div className='main'>
             <div className='background-gradient' />
           </div>
-
+          <GoogleAnalytics />
           <main className='app'>{children}</main>
         </ChakraUIProviders>
       </body>
