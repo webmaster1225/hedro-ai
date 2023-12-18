@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { RxLoop } from 'react-icons/rx';
 import { IoCheckmarkDone } from 'react-icons/io5';
 import { FaRegEdit, FaRegCopy } from 'react-icons/fa';
+import { useToast } from '@chakra-ui/react';
 
 interface PageProps {
   content: string;
@@ -12,6 +13,7 @@ interface PageProps {
 const ChatBuble = ({ content, isHedro, id }: PageProps) => {
   const nickname = isHedro ? 'Hedro' : 'You';
   const [copied, setCopied] = useState(false);
+  const toast = useToast();
 
   const copyContentToClipboard = (content: string) => {
     setCopied(true);
@@ -54,6 +56,15 @@ const ChatBuble = ({ content, isHedro, id }: PageProps) => {
             <div
               className='cursor-pointer w-fit hover:scale-110 transition ease-in-out'
               title='Edit and re-ask this question'
+              onClick={() =>
+                toast({
+                  title: 'Feature coming soon 🤞',
+                  duration: 3000,
+                  isClosable: true,
+                  position: 'top',
+                  status: 'warning',
+                })
+              }
             >
               <FaRegEdit />
             </div>
@@ -63,6 +74,15 @@ const ChatBuble = ({ content, isHedro, id }: PageProps) => {
             <div
               className='cursor-pointer font-bold w-fit hover:scale-110 transition ease-in-out'
               title='Rewrite this answer'
+              onClick={() =>
+                toast({
+                  title: 'Feature coming soon 🤞',
+                  duration: 3000,
+                  isClosable: true,
+                  position: 'top',
+                  status: 'warning',
+                })
+              }
             >
               <RxLoop />
             </div>

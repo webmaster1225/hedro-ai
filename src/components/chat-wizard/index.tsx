@@ -1,5 +1,6 @@
 import { Message } from 'ai/react';
 import ChatBuble from './chat-buble';
+import { useToast } from '@chakra-ui/react';
 import FollowUpQuestion from './follow-up-questions';
 
 interface PageProps {
@@ -8,6 +9,7 @@ interface PageProps {
 }
 
 const ChatWizard = ({ messages, isLoading }: PageProps) => {
+  const toast = useToast();
   return (
     <div className='w-full lg:w-[810px] min-h-full px-3 flex flex-col gap-6'>
       {messages.map((message) => {
@@ -28,7 +30,18 @@ const ChatWizard = ({ messages, isLoading }: PageProps) => {
       {!isLoading && (
         <div className='-mt-3'>
           <p className='text-black font-bold'>Follow up questions: </p>
-          <div className='flex flex-col gap-2'>
+          <div
+            className='flex flex-col gap-2'
+            onClick={() =>
+              toast({
+                title: 'Feature coming soon 🤞',
+                duration: 3000,
+                isClosable: true,
+                position: 'top',
+                status: 'warning',
+              })
+            }
+          >
             <FollowUpQuestion question={'Comming soon...'} />
           </div>
         </div>
