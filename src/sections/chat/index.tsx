@@ -21,7 +21,7 @@ const ChatWithHedro = () => {
 
   return (
     <section
-      className={`w-full sm:w-[650px] lg:w-[1000px] min-h-[100vh] flex flex-col gap-9 items-center justify-center relative`}
+      className={`w-72 xxsm:w-80 xsm:w-96 xssm:w-[28rem] sm:w-[40rem] lg:w-[63rem] min-h-[100vh] flex flex-col gap-9 items-center justify-center relative`}
     >
       <motion.div
         initial='hidden'

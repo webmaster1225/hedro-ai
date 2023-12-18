@@ -27,8 +27,8 @@ const ChatInputBox = ({
   return (
     <fieldset
       className={`${
-        isChatMode ? `sm:w-[810px]` : `sm:w-[550px]`
-      } w-80 xxsm:w-[21rem] xssm:w-96 flex justify-center flex-col items-center mt-12 mx-3 xsm:mx-6 xssm:mx-12`}
+        isChatMode ? `sm:w-[51rem]` : `sm:w-[36rem]`
+      } w-72 xxsm:w-[20rem] xsm:w-[22rem] xssm:w-96 flex justify-center flex-col items-center mt-12 mx-3 xsm:mx-6 xssm:mx-12`}
     >
       <div className={`w-full relative`}>
         <input
@@ -41,7 +41,7 @@ const ChatInputBox = ({
           onMouseLeave={() => setOnHover(false)}
           onFocus={() => setOnFocus(true)}
           onBlur={() => setOnFocus(false)}
-          placeholder={'Ask me anything about Hedera network...'}
+          placeholder={'Ask me about Hedera network...'}
           className={`appearance-none w-full text-sm font-semibold border p-3 rounded-lg transition ease-in-out focus:-translate-y-0.5 focus:outline-none
         bg-gray-100 border-borderColor-light hover:border-bordercolor focus:border-bordercolor focus:bg-white ${
           (onHover || onFocus) && `-translate-y-0.5`
@@ -60,7 +60,7 @@ const ChatInputBox = ({
       </div>
       {note && (
         <div className='text-xs mt-0.5 font-semibold text-secondary'>
-          note: Hedro is in beta and may display incorrect information
+          Hedro is in beta and may display incorrect information
         </div>
       )}
     </fieldset>

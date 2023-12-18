@@ -11,10 +11,13 @@ interface PageProps {
 const ChatWizard = ({ messages, isLoading }: PageProps) => {
   const toast = useToast();
   return (
-    <div className='w-full lg:w-[810px] min-h-full px-3 flex flex-col gap-6'>
+    <div className='w-80 xsm:w-96 xssm:w-[26rem] sm:w-[36rem] md:w-[42rem] lg:w-[51rem] min-h-full px-3 flex flex-col gap-6'>
       {messages.map((message) => {
         return (
-          <div className='w-full' key={message.id}>
+          <div
+            className='w-80 xsm:w-96 xssm:w-[26rem] sm:w-[36rem] md:w-[42rem] lg:w-[51rem]'
+            key={message.id}
+          >
             <ChatBuble
               isHedro={message.role === 'assistant'}
               content={message.content}
