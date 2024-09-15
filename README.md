@@ -27,7 +27,6 @@ A helpful GPT-3.5-turbo-assistant whose main goal is to guide users to explore t
 ## Quickstart
 
 ```
-git clone https://github.com/quiet-node/hedro-ai.git
 cd hedro-ai
 npm install
 ```
