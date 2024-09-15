@@ -1,7 +1,6 @@
 <p align="center">
 <br />
 <h1 align="center"> Hedro.ai - Hedera AI Chatbot Assistant </h1>
-<h5 align="center"> 🪜 Work In Progress... 🪜</h5>
 </p>
 
 <div align="center">
@@ -39,7 +38,7 @@ npm install
 
 create a `.env.local` file using the `example.env.local` as the template and fill out the variables
 
-  - `OPENAI_API_KEY`: your OpenAI API key
+- `OPENAI_API_KEY`: your OpenAI API key
 
 #### 2. Run the project in dev mode
 
